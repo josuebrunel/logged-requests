@@ -1,0 +1,3 @@
+from __future__ import absolute_import
+
+from logged_requests.logged_requests import LoggedRequests
