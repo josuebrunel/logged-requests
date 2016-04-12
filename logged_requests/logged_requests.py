@@ -1,11 +1,19 @@
 from __future__ import absolute_import
 
+import logging
+
 from requests import Session
 
 class LoggedRequests(Session):
 
     def __init__(self, *args, **kwargs):
-        self.logger = kwargs.pop('logger')
+        self.logger = kwargs.pop('logger', None)
+        if not self.logger:
+            from logged_requests.logger import DefaultLogger
+            logging.setLoggerClass(DefaultLogger)
+            self.logger = logging.getLogger('logged_requests')
+            self.logger.setLevel(logging.DEBUG)
+            self.logger.propagate = False
         super(LoggedRequests, self).__init__(*args, **kwargs)
 
     def request(self, method, url, **kwargs):
