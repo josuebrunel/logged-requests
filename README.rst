@@ -5,17 +5,18 @@ Logged Requests
 
 **logged_requests** is a simple wrapper around the *requests.Session* object. It captures *input and output* data of a *requests.Session* object.
 
+
 Installation
-------------
+============
 
 .. code:: python
 
     pip install logged_requests
 
-    Quickstart
-    ----------
+Quickstart
+----------
 
-    .. code:: python
+.. code:: python
 
     url = 'https://httpbin.org/post'
     from logged_requests import LoggedRequests
