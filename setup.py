@@ -1,9 +1,10 @@
 import os
+import subprocess
 from setuptools import setup, find_packages
 
-__author__ = 'Josue Kouka'
-__email__ = 'josuebrunel@gmail.com'
-__version__ = '0.0.1'
+
+class NoGitVersionFound(Exception):
+    pass
 
 #requirements.txt
 with open('requirements.txt') as f:
@@ -11,6 +12,16 @@ with open('requirements.txt') as f:
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
+def get_version():
+    git_version = subprocess.check_output(['git','describe']).rstrip()
+    if not git_version:
+        raise NoGitVersionFound("No git tag found")
+    return git_version
+
+__author__ = 'Josue Kouka'
+__email__ = 'josuebrunel@gmail.com'
+__version__ = get_version()
 
 setup(
   name = "logged_requests",
