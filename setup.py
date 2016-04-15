@@ -26,7 +26,7 @@ __version__ = get_version()
 setup(
   name = "logged_requests",
   version = __version__,
-  description = "",
+  description = "Simple wrapper around the requets library",
   long_description = read("README.rst"),
   author = __author__,
   author_email = __email__,
