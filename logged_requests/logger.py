@@ -1,7 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 
 import logging
-from logging import Logger, handlers
+
 
 class DefaultLogger(logging.Logger):
     """Yahoo Logger class
@@ -23,4 +23,3 @@ class DefaultLogger(logging.Logger):
         stream_handler = logging.StreamHandler()
         stream_handler.setFormatter(formatter)
         self.addHandler(stream_handler)
-
