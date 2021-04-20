@@ -3,7 +3,7 @@ coveralls==1.1
 docopt==0.6.2
 httmock==1.2.5
 pluggy==0.3.1
-py==1.4.31
+py==1.10.0
 pytest==2.9.1
 pytest-capturelog==0.7
 requests==2.20.0
